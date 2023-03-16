@@ -4,7 +4,7 @@ from kivy.core.window import Window
 from kivy.utils import get_color_from_hex
 from kivy.core.text import LabelBase
 from kivy.uix.floatlayout import FloatLayout
-from components.main_form import MainForm
+from components.main_form.main_form import MainForm
 
 
 
