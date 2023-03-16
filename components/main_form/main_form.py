@@ -8,7 +8,7 @@ from kivy.lang import Builder
 from plyer import filechooser
 from uix.upload_button import UploadButton
 
-Builder.load_file("./components/main_form.kv")
+Builder.load_file("./components/main_form/main_form.kv")
 class MainForm(Widget):
 
 	background_color = [200/255, 230/255, 201/255, 1]
