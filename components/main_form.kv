@@ -1,0 +1,31 @@
+
+<MainForm>:
+	form: form
+	FloatLayout:
+		id: form
+		size: [ 275, 305 ]
+		pos: [ (root.width - self.width)/2.0, (root.height - self.height)/2.0 ]
+		canvas.before:
+			Color:
+				rgb: root.background_color
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		Label:
+			id: title_label
+			text: 'Image Resizer'
+			font_size: 30
+			color: [0,0,0,1]
+			pos: [ self.parent.x, self.parent.y - 10]
+		Image:
+			source: 'assets/images/picture.png'
+			pos_hint: { "center_x": 0.5 }
+			y: self.parent.y + 70
+		UploadButton:
+			size_hint: [None, None]
+			width: 155
+			height: 40
+			text: 'Browse Picture'
+			pos_hint: { "center_x": 0.5 }
+			y: self.parent.y + 30
+			on_release: root.open_file()
