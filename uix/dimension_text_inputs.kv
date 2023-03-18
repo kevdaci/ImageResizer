@@ -1,0 +1,29 @@
+<DimensionTextInputs>:
+	GridLayout:
+		rows: 2
+		cols: 1
+		width: 223
+		height: 80
+		spacing: 10
+		x: self.parent.x
+		y: self.parent.y
+		canvas.before:
+			Color:
+				rgb: [0,0,1,1]
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		BoxLayout:
+			orientation: 'horizontal'
+			TextInput:
+				size_hint_x: 9
+			Label:
+				size_hint_y: 1
+				text: 'px'
+		BoxLayout:
+			orientation: 'horizontal'
+			TextInput:
+				size_hint_x: 9
+			Label:
+				size_hint_y: 1
+				text: 'px'

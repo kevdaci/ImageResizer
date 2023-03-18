@@ -1,31 +1,48 @@
 
 <MainForm>:
 	form: form
-	FloatLayout:
+	picture_image: picture_image
+	title_label: title_label
+	upload_button: upload_button
+	dimension_text_inputs: dimension_text_inputs
+	RelativeLayout:
 		id: form
-		size: [ 275, 305 ]
-		pos: [ (root.width - self.width)/2.0, (root.height - self.height)/2.0 ]
+		width: 275
+		height: 305 if len(root.selection) == 0 else 400
+		pos: [ (root.width - self.width) / 4, (root.height - self.height) / 4 ]
 		canvas.before:
 			Color:
 				rgb: root.background_color
 			Rectangle:
 				pos: self.pos
 				size: self.size
+		Image:
+			id: picture_image
+			source: 'assets/images/picture.png'
+			x: self.parent.x
+			y: self.parent.y + 70 if len(root.selection) == 0 else self.parent.y + 125
+		DimensionTextInputs:
+			id: dimension_text_inputs
+			width: 0 if form.height == 305 else self.width
+			height: 0 if form.height == 305 else self.height
+			x: self.parent.x + 26
+			y: self.parent.y + 100
+			opacity: 0 if form.height == 305 else 1
 		Label:
 			id: title_label
 			text: 'Image Resizer'
 			font_size: 30
+			size: [ form.width, self.font_size ]
+			x: self.parent.x
+			y: self.parent.y - 10 if len(root.selection) == 0 else self.parent.y + 45
 			color: [ 0, 0, 0, 1 ]
-			pos: [ self.parent.x, self.parent.y - 10 ]
-		Image:
-			source: 'assets/images/picture.png'
-			pos_hint: { "center_x": 0.5 }
-			y: self.parent.y + 70
 		UploadButton:
+			id: upload_button
 			size_hint: [None, None]
 			width: 155
 			height: 40
 			text: 'Browse Picture'
-			pos_hint: { "center_x": 0.5 }
+			x: self.parent.x + ((self.parent.width - self.width) / 2)
 			y: self.parent.y + 30
 			on_release: root.open_file()
+
